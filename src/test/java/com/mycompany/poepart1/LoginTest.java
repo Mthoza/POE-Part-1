@@ -12,12 +12,58 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Student
  */
 public class LoginTest {
-    
-    public LoginTest() {
+    // --- checkUserName() ---
+    @Test
+    public void testCheckUserNameCorrectlyFormatted() {
+        Login login = new Login("+27838968976", "kyl_1", "Ch&&sec@ke99!");
+        assertTrue(login.checkUserName());
     }
 
     @Test
-    public void testSomeMethod() {
+    public void testCheckUserNameIncorrectlyFormatted() {
+        Login login = new Login("+27838968976", "kyle!!!!!!", "Ch&&sec@ke99!");
+        assertFalse(login.checkUserName());
     }
-    
+
+    // --- checkPasswordComplexity() ---
+
+    @Test
+    public void testCheckPasswordMeetsComplexity() {
+        Login login = new Login("+27838968976", "kyl_1", "Ch&&sec@ke99!");
+        assertTrue(login.checkPasswordComplexity());
+    }
+
+    @Test
+    public void testCheckPasswordDoesNotMeetComplexity() {
+        Login login = new Login("+27838968976", "kyl_1", "password");
+        assertFalse(login.checkPasswordComplexity());
+    }
+
+    // --- checkCellPhoneNumber() ---
+
+    @Test
+    public void testCheckCellPhoneNumberCorrectlyFormatted() {
+        Login login = new Login("+27838968976", "kyl_1", "Ch&&sec@ke99!");
+        assertTrue(login.checkCellPhoneNumber());
+    }
+
+    @Test
+    public void testCheckCellPhoneNumberIncorrectlyFormatted() {
+        Login login = new Login("08966553", "kyl_1", "Ch&&sec@ke99!");
+        assertFalse(login.checkCellPhoneNumber());
+    }
+
+    // --- loginUser() ---
+
+    @Test
+    public void testLoginSuccessful() {
+        Login login = new Login("+27838968976", "kyl_1", "Ch&&sec@ke99!");
+        assertTrue(login.loginUser("kyl_1", "Ch&&sec@ke99!"));
+    }
+
+    @Test
+    public void testLoginFailed() {
+        Login login = new Login("+27838968976", "kyl_1", "Ch&&sec@ke99!");
+        assertFalse(login.loginUser("wrongUser", "wrongPass"));
+    }
 }
