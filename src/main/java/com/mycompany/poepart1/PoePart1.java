@@ -10,38 +10,60 @@ package com.mycompany.poepart1;
  */
 import java.util.Scanner;
 public class PoePart1 {
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        
-        System.out.println("Hey there, please enter your user name");
+
+        System.out.println("Hey there, please enter your username");
         String userName = input.nextLine();
-        
-        System.out.println("please enter your south african cell phone number");
+
+        System.out.println("Please enter your South African cell phone number (e.g. +27831234567)");
         String phoneNumber = input.nextLine();
-        
-        System.out.println("please enter your password");
+
+        System.out.println("Please enter your password");
         String password = input.nextLine();
-        
-        Login Login = new Login (phoneNumber,userName,password);
-        if(Login.checkUserName()){
-           System.out.println("username successfully captured");
-       }else{
-           System.out.println("username not correctly formatted , please ensure that\nyour user "
-                   + "name is contains an underscore and is no more than 5 characters in length");
-      
-       //checking if cell phone number meets requirements
-      if(Login.checkCellPhoneNumber()){
-           System.out.println("student number captured");
-       }else{
-           System.out.println("student number not successfully captured");
-       }
-      if(Login.checkPasswordComplexity()){
-          System.out.println("password captured successfully");
-      }else{
-          System.out.println(" password not correctly formatted , please ensure that\nyour pass "
-                   + "word is contains atleast 8 characters, a capital letter,a number and a special charater");
-      }
-    }
+
+        Login login = new Login(phoneNumber, userName, password);
+
+        // Check username
+        if (login.checkUserName()) {
+            System.out.println("Username successfully captured.");
+        } else {
+            System.out.println("Username is not correctly formatted; please ensure that\n"
+                    + "your username contains an underscore and is no more than five characters in length.");
+        }
+
+        // Check cell phone number
+        if (login.checkCellPhoneNumber()) {
+            System.out.println("Cell number successfully captured.");
+        } else {
+            System.out.println("Cell number is incorrectly formatted or does not contain an\n"
+                    + "international code; please correct the number and try again.");
+        }
+
+        // Check password complexity
+        if (login.checkPasswordComplexity()) {
+            System.out.println("Password successfully captured.");
+        } else {
+            System.out.println("Password is not correctly formatted; please ensure that\n"
+                    + "the password contains at least eight characters, a capital letter, a number,\n"
+                    + "and a special character.");
+        }
+
+        // Only allow login if registration was fully successful
+        if (login.checkUserName() && login.checkCellPhoneNumber() && login.checkPasswordComplexity()) {
+            System.out.println("\nYou have been registered successfully! Please log in.\n");
+
+            System.out.println("Please enter your username to log in");
+            String loginUsername = input.nextLine();
+
+            System.out.println("Please enter your password to log in");
+            String loginPassword = input.nextLine();
+
+            System.out.println(login.returnLoginStatus(loginUsername, loginPassword));
+        } else {
+            System.out.println("\nRegistration was not successful. Please restart and correct the details above.");
+        }
+
+        input.close();
     }
 }
