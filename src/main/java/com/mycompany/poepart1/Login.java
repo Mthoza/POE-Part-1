@@ -18,14 +18,8 @@ public class Login {
         this.username = username;
         this.password = password;
     }
-    /**
-     * Username must contain an underscore and be no more than five
-     * characters long.
-     */
     public boolean checkUserName() {
-        return username != null
-                && username.contains("_")
-                && username.length() <= 5;
+        return username != null && username.contains("_") && username.length() <= 5;
     }
 
     /**
