@@ -22,9 +22,8 @@ public class Login {
         return username != null && username.contains("_") && username.length() <= 5;
     }
 
-    /**
-     * Password must be at least eight characters long and contain
-     * a capital letter, a number, and a special character.
+    /* Password must be at least eight characters long and contain
+      a capital letter, a number, and a special character.
      */
     public boolean checkPasswordComplexity() {
         if (password == null || password.length() < 8) {
@@ -43,17 +42,17 @@ public class Login {
                 hasDigit = true;
             } else if (!Character.isLetterOrDigit(c)) {
                 // anything that isn't a letter and isn't a digit
-                // counts as a special character
+                // is seen as a special character
                 hasSpecialChar = true;
             }
         }
 
         return hasUppercase && hasDigit && hasSpecialChar;
     }
-    /**
-     * Cell phone number must contain the South African international
-     * code (+27) followed by no more than ten digits.
-     */
+    /*
+     Cell phone number must contain the South African international
+     code (+27) followed by no more than 10 digits.
+    */
     public boolean checkCellPhoneNumber() {
         if (cellPhoneNumber == null) {
             return false;
@@ -103,18 +102,18 @@ public class Login {
                 + username + "!";
     }
 
-    /**
-     * Checks whether the username and password entered at login match
-     * the details this Login object was registered with.
+    /*
+     Checks whether the username and password entered at login match
+     the details this Login object was registered with.
      */
     public boolean loginUser(String enteredUsername, String enteredPassword) {
         return username != null && username.equals(enteredUsername)
                 && password != null && password.equals(enteredPassword);
     }
 
-    /**
-     * Returns the welcome message on successful login, or a failure
-     * message if the entered credentials don't match.
+    /*
+      Returns the welcome message on successful login, or a failure
+      message if the entered credentials don't match.
      */
     public String returnLoginStatus(String enteredUsername, String enteredPassword) {
         if (loginUser(enteredUsername, enteredPassword)) {
