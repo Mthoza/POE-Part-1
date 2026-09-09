@@ -9,9 +9,9 @@ package com.mycompany.poepart1;
  * @author Student
  */
 public class Login {
-    private String cellPhoneNumber;
-    private String username;
-    private String password;
+   public String cellPhoneNumber;
+   public String username;
+   public String password;
 
     public Login(String cellPhoneNumber, String username, String password) {
         this.cellPhoneNumber = cellPhoneNumber;
