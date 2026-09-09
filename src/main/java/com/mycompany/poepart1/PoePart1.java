@@ -16,7 +16,7 @@ public class PoePart1 {
         System.out.println("Hey there, please enter your username");
         String userName = input.nextLine();
 
-        System.out.println("Please enter your South African cell phone number (e.g. +27831234567)");
+        System.out.println("Please enter your South African cell phone number");
         String phoneNumber = input.nextLine();
 
         System.out.println("Please enter your password");
@@ -49,7 +49,7 @@ public class PoePart1 {
                     + "and a special character.");
         }
 
-        // Only allow login if registration was fully successful
+        // Only allow login if registration was successful
         if (login.checkUserName() && login.checkCellPhoneNumber() && login.checkPasswordComplexity()) {
             System.out.println("\nYou have been registered successfully! Please log in.\n");
 
@@ -67,3 +67,8 @@ public class PoePart1 {
         input.close();
     }
 }
+/* References 
+freeCodeCamp.org (2022) Java Programming for Beginners – Full Course. Available at: https://www.youtube.com/watch?v=A74TOX803D0 (Accessed: 9 September 2026).
+
+Saini, M. (2018) Java NetBeans Tutorial | chat application in java. Available at: https://www.youtube.com/watch?v=dlacc6831zw (Accessed: 9 September 2026).
+*/
