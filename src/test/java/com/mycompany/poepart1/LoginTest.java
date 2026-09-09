@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Student
  */
 public class LoginTest {
-    // --- checkUserName() ---
+    
     @Test
     public void testCheckUserNameCorrectlyFormatted() {
         Login login = new Login("+27838968976", "kyl_1", "Ch&&sec@ke99!");
@@ -25,7 +25,6 @@ public class LoginTest {
         assertFalse(login.checkUserName());
     }
 
-    // --- checkPasswordComplexity() ---
 
     @Test
     public void testCheckPasswordMeetsComplexity() {
@@ -38,8 +37,7 @@ public class LoginTest {
         Login login = new Login("+27838968976", "kyl_1", "password");
         assertFalse(login.checkPasswordComplexity());
     }
-
-    // --- checkCellPhoneNumber() ---
+   
 
     @Test
     public void testCheckCellPhoneNumberCorrectlyFormatted() {
@@ -52,8 +50,6 @@ public class LoginTest {
         Login login = new Login("08966553", "kyl_1", "Ch&&sec@ke99!");
         assertFalse(login.checkCellPhoneNumber());
     }
-
-    // --- loginUser() ---
 
     @Test
     public void testLoginSuccessful() {
