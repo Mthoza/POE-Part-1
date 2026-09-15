@@ -13,7 +13,7 @@ public class PoePart1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Hey there, please enter your username");
+        System.out.println("Hello there, please enter your username");
         String userName = input.nextLine();
 
         System.out.println("Please enter your South African cell phone number");
