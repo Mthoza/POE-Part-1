@@ -32,7 +32,7 @@ public class PoePart1 {
                     + "your username contains an underscore and is no more than five characters in length.");
         }
 
-        // Check cell phone number
+        //  to check whether cell phone number is valid for south africa
         if (login.checkCellPhoneNumber()) {
             System.out.println("Cell number successfully captured.");
         } else {
