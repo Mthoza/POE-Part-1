@@ -24,7 +24,7 @@ public class PoePart1 {
 
         Login login = new Login(phoneNumber, userName, password);
 
-        // Check username
+        // to check username
         if (login.checkUserName()) {
             System.out.println("Username successfully captured.");
         } else {
